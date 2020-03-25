@@ -4,13 +4,20 @@
   padding: 0;
 }
 
+/*@media (min-width: 900px) {*/
+/*  section {*/
+/*    width: 80%;*/
+/*    margin: auto;*/
+/*  }*/
+/*}*/
+
 header {
-  height: 50px;
+  height: 70px;
   background-color: lightgrey;
   padding: 15px;
 }
 
-header img {
+header a img {
   height: 100%;
   margin-left: 5%;
   vertical-align: middle;

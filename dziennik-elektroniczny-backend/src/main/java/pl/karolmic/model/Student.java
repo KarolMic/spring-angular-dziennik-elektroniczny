@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-//@NamedQuery(name = "Student.findById", query = "from Student s where s.id = ?1")
 public class Student {
 
     @Id

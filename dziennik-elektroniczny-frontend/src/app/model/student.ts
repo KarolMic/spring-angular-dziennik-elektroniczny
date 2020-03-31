@@ -1,12 +1,16 @@
+import {Class} from './class';
+
 export class Student {
 
-  id: string;
+  student_id: string;
   name: string;
-  sureName: string;
+  surName: string;
+  class_id: Class;
 
-  constructor(_name: string, _surename: string, _id?: string) {
+  constructor(_name: string, _surName: string, _class_id: Class, _id?: string) {
     this.name = _name;
-    this.sureName = _surename;
-    this.id = _id;
+    this.surName = _surName;
+    this.class_id = _class_id;
+    this.student_id = _id;
   }
 }

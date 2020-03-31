@@ -2,32 +2,29 @@ package pl.karolmic.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Student {
 
     @Id
-    private String id;
+    private String student_id;
 
     private String name;
 
-    private String sureName;
+    private String surName;
 
-    public Student(String id, String name, String sureName) {
-        this.id = id;
-        this.name = name;
-        this.sureName = sureName;
+    @ManyToOne
+    @JoinColumn(name="clazz")
+    private Class clazz;
+
+    public String getStudent_id() {
+        return student_id;
     }
 
-    public Student() {
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public void setStudent_id(String student_id) {
+        this.student_id = student_id;
     }
 
     public String getName() {
@@ -38,11 +35,29 @@ public class Student {
         this.name = name;
     }
 
-    public String getSureName() {
-        return sureName;
+    public String getSurName() {
+        return surName;
     }
 
-    public void setSureName(String sureName) {
-        this.sureName = sureName;
+    public void setSurName(String sureName) {
+        this.surName = sureName;
+    }
+
+    public String getClazz() {
+        return clazz.getClazz();
+    }
+
+    public void setClazz(String clazz) {
+        this.clazz.setClazz(clazz);
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "student_id='" + student_id + '\'' +
+                ", name='" + name + '\'' +
+                ", sureName='" + surName + '\'' +
+                ", clazz=" + clazz +
+                '}';
     }
 }

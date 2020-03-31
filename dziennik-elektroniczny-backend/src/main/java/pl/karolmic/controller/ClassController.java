@@ -7,23 +7,30 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.karolmic.model.Class;
 import pl.karolmic.model.Student;
 import pl.karolmic.repository.SimpleClassRepository;
 import pl.karolmic.repository.SimpleStudentRepository;
 
 import java.util.List;
 
+@EnableWebSecurity
 @RestController
 @CrossOrigin
-public class StudentController {
+public class ClassController extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    SimpleStudentRepository simpleStudentRepository;
+    SimpleClassRepository simpleClassRepository;
 
-    @GetMapping("/students")
-    public List<Student> showAll() {
+    @GetMapping("/classes")
+    public List<Class> showAll() {
 
-        return simpleStudentRepository.findAll();
+        return simpleClassRepository.findAll();
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
     }
 
 }

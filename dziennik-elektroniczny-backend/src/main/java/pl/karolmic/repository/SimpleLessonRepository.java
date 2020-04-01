@@ -12,6 +12,8 @@ public interface SimpleLessonRepository extends CrudRepository<Lesson, Long>, Qu
 
     List<Lesson> findAll();
 
+    List<Lesson> findLessonByClazz(Class clazz);
+
     List<Lesson> findLessonByClazzAndDayOfWeekId(Class clazz, DayOfWeek dayOfWeek);
 
 }

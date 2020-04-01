@@ -63,13 +63,110 @@
 
 </table>
 
+<!--<h1>Rozkład zajęć</h1>-->
+<!--<table>-->
+
+<!--  <ng-container *ngFor="let dayOfWeek of daysOfWeek">-->
+<!--    <td>{{dayOfWeek.name}}</td>-->
+<!--  </ng-container>-->
+
+<!--  <ng-container *ngFor="let dayOfWeek of daysOfWeek">-->
+<!--    <tr>-->
+<!--      <ng-container *ngFor="let hourLesson of hourLessons">-->
+<!--        <ng-container *ngFor="let lesson of lessons">-->
+<!--          <ng-container *ngIf="lesson.dayOfWeekId.name ===  dayOfWeek.name && lesson.hour_lesson_id.name === hourLesson.name">-->
+<!--            <td>-->
+<!--              {{lesson.subject_id.name}}-->
+<!--              <ng-container *ngIf="updateBlankCells(dayOfWeek)"></ng-container>-->
+<!--            </td>-->
+<!--          </ng-container>-->
+<!--          <ng-container *ngIf="lesson.dayOfWeekId.name !==  dayOfWeek.name && lesson.hour_lesson_id.name !== hourLesson.name">-->
+<!--            <td>-->
+<!--              - -->
+<!--              <ng-container *ngIf="updateBlankCells(dayOfWeek)"></ng-container>-->
+<!--            </td>-->
+<!--          </ng-container>-->
+<!--        </ng-container>-->
+<!--      </ng-container>-->
+
+<!--&lt;!&ndash;      <ng-container *ngFor="let element of blankCells | keyvalue">&ndash;&gt;-->
+<!--&lt;!&ndash;        <ng-container *ngIf="element.value === false">&ndash;&gt;-->
+<!--&lt;!&ndash;          <td>- &ndash;&gt;-->
+<!--&lt;!&ndash;          </td>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ng-container>&ndash;&gt;-->
+<!--&lt;!&ndash;      </ng-container>&ndash;&gt;-->
+<!--    </tr>-->
+<!--  </ng-container>-->
+<!--&lt;!&ndash;  <ng-container *ngIf="iterate()"></ng-container>&ndash;&gt;-->
+<!--</table>-->
+
 <h1>Rozkład zajęć</h1>
 <table>
-  <tr *ngFor="let lesson of lessons">
-    <td>
-      {{lesson.subject_id.name}}
-    </td>
+
+  <tr>
+    <td>-</td>
+    <ng-container *ngFor="let dayOfWeek of daysOfWeek">
+      <td>{{dayOfWeek.name}}</td>
+    </ng-container>
   </tr>
 
+  <tr *ngFor="let hour of hourLessons">
+    <td>{{hour.hour}}</td>
+    <ng-container *ngFor="let element of dayHourLessonMap | keyvalue: keepOrder">
+      <ng-container *ngIf="element.key.includes(hour.name)">
+        <ng-container *ngIf="element.value !== false">
+          <td>
+            {{element.value}}
+          </td>
+        </ng-container>
+        <ng-container *ngIf="element.value === false">
+          <td>
+            -
+          </td>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </tr>
+<!--  <tr>-->
+<!--    <ng-container *ngFor="let element of dayHourLessonMap | keyvalue: keepOrder">-->
+<!--      &lt;!&ndash;    &#45;&#45;&#45;&#45;{{element.key + element.value}}-&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+<!--      <ng-container *ngIf="element.key.includes('SECCOND_LESSON')">-->
+<!--        <ng-container *ngIf="element.value !== false">-->
+<!--          <td>-->
+<!--            {{element.value}}-->
+<!--          </td>-->
+<!--        </ng-container>-->
+<!--        <ng-container *ngIf="element.value === false">-->
+<!--          <td>-->
+<!--            - -->
+<!--          </td>-->
+<!--        </ng-container>-->
+<!--      </ng-container>-->
+<!--    </ng-container>-->
+<!--  </tr>-->
+
 </table>
+
+
+<!--<h1>Rozkład zajęć</h1>-->
+<!--<table>-->
+
+<!--  <tr>-->
+<!--    <ng-container *ngFor="let dayOfWeek of daysOfWeek">-->
+<!--      <td>{{dayOfWeek.name}}</td>-->
+<!--    </ng-container>-->
+<!--  </tr>-->
+
+<!--  <tr *ngFor="let hour of hourLessons">-->
+<!--    <ng-container *ngFor="let lesson of lessons">-->
+<!--      <ng-container *ngIf="hour.name === lesson.hour_lesson_id.name">-->
+<!--        <td>{{lesson.subject_id.name}}</td>-->
+<!--      </ng-container>-->
+<!--      <ng-container *ngIf="hour.name !== lesson.hour_lesson_id.name">-->
+<!--        <td>-</td>-->
+<!--      </ng-container>-->
+<!--    </ng-container>-->
+<!--  </tr>-->
+
+<!--</table>-->
 

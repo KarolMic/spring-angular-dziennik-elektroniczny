@@ -24,13 +24,10 @@ public class LessonController {
     SimpleDayOfWeekRepository simpleDayOfWeekRepository;
 
     @RequestMapping("/lesson")
-    public List<Lesson> showAll(@RequestParam Map<String,String> requestParams) {
-        String className = requestParams.get("className");
-        String dayOfWeek = requestParams.get("dayOfWeek");
+    public List<Lesson> showAll(@RequestParam String className) {
         Class clazz = simpleClassRepository.findByName(className);
-        DayOfWeek day = simpleDayOfWeekRepository.findByName(dayOfWeek);
 
-        return simpleLessonRepository.findLessonByClazzAndDayOfWeekId(clazz, day);
+        return simpleLessonRepository.findLessonByClazz(clazz);
     }
 
 }

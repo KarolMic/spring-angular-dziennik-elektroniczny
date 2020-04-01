@@ -7,6 +7,7 @@ import {Teacher} from '../model/teacher';
 import {Subject} from '../model/subject';
 import {Lesson} from '../model/lesson';
 import {DayOfWeek} from '../model/day-of-week';
+import {HourLesson} from '../model/hour-lesson';
 
 @Injectable({
   providedIn: 'root'
@@ -39,8 +40,8 @@ export class HttpRequestsService {
     });
   }
 
-  findLesson(className: string, dayOfWeek: string): Observable<Lesson[]> {
-    return this.http.get<Lesson[]>('http://localhost:8080/lesson?className=' + className + '&dayOfWeek=' + dayOfWeek, {
+  findLesson(className: string): Observable<Lesson[]> {
+    return this.http.get<Lesson[]>('http://localhost:8080/lesson?className=' + className, {
       headers: new HttpHeaders().set('Accept', 'application/json'),
     });
   }
@@ -48,6 +49,12 @@ export class HttpRequestsService {
   findDaysOfWeek(): Observable<DayOfWeek[]> {
     return this.http.get<DayOfWeek[]>('http://localhost:8080/daysOfWeek', {
       headers: new HttpHeaders().set('Accept', 'application/json'),
+    });
+  }
+
+  findHourLessons(): Observable<HourLesson[]> {
+    return this.http.get<HourLesson[]>('http://localhost:8080/hourLessons', {
+      headers: new HttpHeaders().set('Accept', 'application/json')
     });
   }
 }

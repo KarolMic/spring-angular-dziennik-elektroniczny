@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.karolmic.model.Class;
 import pl.karolmic.model.Lesson;
-import pl.karolmic.repository.SimpleClassRepository;
-import pl.karolmic.repository.SimpleDayOfWeekRepository;
-import pl.karolmic.repository.SimpleLessonRepository;
+import pl.karolmic.repository.*;
 
 import java.util.List;
 
@@ -19,11 +17,13 @@ public class LessonController {
     @Autowired
     SimpleClassRepository simpleClassRepository;
     @Autowired
-    SimpleDayOfWeekRepository simpleDayOfWeekRepository;
+    SimpleUserRepository simpleUserRepository;
 
     @RequestMapping("/lesson")
     public List<Lesson> showAll(@RequestParam String className) {
         Class clazz = simpleClassRepository.findByName(className);
+
+        System.out.println("SIEMAAAA" + simpleUserRepository.findAll());
 
         return simpleLessonRepository.findLessonByClazz(clazz);
     }

@@ -4,13 +4,6 @@
   padding: 0;
 }
 
-/*@media (min-width: 900px) {*/
-/*  section {*/
-/*    width: 80%;*/
-/*    margin: auto;*/
-/*  }*/
-/*}*/
-
 header {
   height: 70px;
   background-color: lightgrey;
@@ -20,6 +13,16 @@ header {
 header a img {
   height: 100%;
   margin-left: 5%;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+#link-to-login-form {
+  float: right;
+  margin-right: 5%;
+  font-size: 20px;
+  font-weight: bold;
+  color: lightseagreen;
   vertical-align: middle;
   display: inline-block;
 }

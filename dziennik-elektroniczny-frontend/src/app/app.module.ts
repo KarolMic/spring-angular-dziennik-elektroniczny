@@ -6,12 +6,14 @@ import { StudentsTableComponent } from './students-table/students-table.componen
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { StronaGlownaComponent } from './strona-glowna/strona-glowna.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentsTableComponent,
-    StronaGlownaComponent
+    StronaGlownaComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,

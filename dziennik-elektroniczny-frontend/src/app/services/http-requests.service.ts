@@ -3,11 +3,11 @@ import {Observable} from 'rxjs';
 import {Student} from '../model/student';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Class} from '../model/class';
-import {Teacher} from '../model/teacher';
 import {Subject} from '../model/subject';
 import {Lesson} from '../model/lesson';
 import {DayOfWeek} from '../model/day-of-week';
 import {HourLesson} from '../model/hour-lesson';
+import {Teacher} from '../model/teacher';
 
 @Injectable({
   providedIn: 'root'

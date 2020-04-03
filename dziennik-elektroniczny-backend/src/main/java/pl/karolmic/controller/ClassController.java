@@ -12,10 +12,10 @@ import pl.karolmic.repository.SimpleClassRepository;
 
 import java.util.List;
 
-@EnableWebSecurity
+//@EnableWebSecurity
 @RestController
 @CrossOrigin
-public class ClassController extends WebSecurityConfigurerAdapter {
+public class ClassController {
 
     @Autowired
     SimpleClassRepository simpleClassRepository;
@@ -26,8 +26,9 @@ public class ClassController extends WebSecurityConfigurerAdapter {
         return simpleClassRepository.findAll();
     }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable();
-    }
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.csrf().disable();
+//    }
+
 }

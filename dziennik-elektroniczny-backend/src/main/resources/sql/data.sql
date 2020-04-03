@@ -5,11 +5,13 @@ INSERT INTO PUBLIC.CLASS(CLASS_ID, NAME, YEAR) VALUES
 (3, '3C', 2020);
 
 INSERT INTO PUBLIC.STUDENT(STUDENT_ID, NAME, SURNAME, CLASS_ID) VALUES
+(0, 'x', 'x', 1),
 (1, 'Karol', 'Przykładowy', 1),
 (2, 'Mateusz', 'Kowalski', 2),
 (3, 'Patryk', 'Kwiat', 3);
 
 INSERT INTO PUBLIC.TEACHER(TEACHER_ID, NAME, SURNAME) VALUES
+(0, 'x', 'x'),
 (1, 'Agnieszka', 'Jankowska'),
 (2, 'Luiza', 'Sawicka'),
 (3, 'Hubert', 'Brzeziński');
@@ -84,3 +86,11 @@ INSERT INTO PUBLIC.LESSON(LESSON_ID, SUBJECT_ID, DAY_OF_WEEK_ID, HOUR_LESSON_ID,
 (25, 9, 3, 8, 1, 3),
 
 (26, 11, 3, 9, 1, 2);
+
+INSERT INTO PUBLIC.USER(USER_ID, USERNAME, PASSWORD, STUDENT_ID, TEACHER_ID) VALUES
+(1, 'ajankowska', '$2a$10$Y0HEN3n0BI/CNwIZVZSlf.2t4z6PXqta0pSHvwuWaryiqMf5NBsZm', 0, 1),
+(2, 'lsawicka', '$2a$10$TeWr0B.Y9cBeztUioPyKsuRxOYRtehZUAQ6av1lrBkxztqJhIdFPS', 0, 2),
+(3, 'hbrzezinski', '$2a$10$HuVwhz.8ReFACGKvZKkqTelx6zs.wxs/osCbi9TFtVTufFBBeMWyO', 0, 3),
+(4, 'kprzykladowy', '$2a$10$Pw8qVTBEtDarm9XbwWoL2.UQKvNxtpp8jKSn1GTudLsQ/G.pHLP06', 1, 0),
+(5, 'mkowalski', '$2a$10$8a4d4AOAC4E/7Qj9x5UIBuJBefOFRV25cVz9QGqCAHdWqkPxNzB8C', 2, 0),
+(6, 'pkwiat', '$2a$10$UtiCAF1m.f/.jg/aKOi5s.7l.xxIDrCWvijZZlEfJXVtgkpRkXorK', 3, 0);

@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {StronaGlownaComponent} from './strona-glowna/strona-glowna.component';
 import {StudentsTableComponent} from './students-table/students-table.component';
+import {LoginFormComponent} from './login-form/login-form.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/strona-glowna', pathMatch: 'full'},
   {path: 'strona-glowna', component: StronaGlownaComponent},
-  {path: 'nauczyciel', component: StudentsTableComponent}
+  {path: 'nauczyciel', component: StudentsTableComponent},
+  {path: 'login', component: LoginFormComponent}
 ];
 
 @NgModule({

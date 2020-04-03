@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import java.util.List;
 
 @Entity
@@ -19,6 +20,9 @@ public class Teacher {
 
     @OneToMany
     private List<Lesson> lessons;
+
+    @OneToOne
+    private User user;
 
     public Integer getId() {
         return id;

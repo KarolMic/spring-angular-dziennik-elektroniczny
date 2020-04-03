@@ -21,6 +21,9 @@ public class Student {
     @JoinColumn(name="clazz")
     private Class clazz;
 
+    @OneToOne
+    private User user;
+
     public Integer getId() {
         return id;
     }

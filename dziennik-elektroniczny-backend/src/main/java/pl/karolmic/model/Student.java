@@ -7,7 +7,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
+@NamedQuery(name = Student.GET_STUDENT_BY_NAME, query = "select s from Student s where s.name = ?1")
 public class Student {
+
+    public static final String GET_STUDENT_BY_NAME = "GetStudentByName";
+
 
     @Id
     @Column(name = "student_id")

@@ -7,6 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { StronaGlownaComponent } from './strona-glowna/strona-glowna.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,9 @@ import { LoginFormComponent } from './login-form/login-form.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
-],
+    AppRoutingModule,
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

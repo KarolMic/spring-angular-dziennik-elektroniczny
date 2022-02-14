@@ -7,6 +7,7 @@ import {Subject} from '../model/subject';
 import {Lesson} from '../model/lesson';
 import {DayOfWeek} from '../model/day-of-week';
 import {HourLesson} from '../model/hour-lesson';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-students-table',
@@ -23,11 +24,26 @@ export class StudentsTableComponent implements OnInit {
   daysOfWeek: DayOfWeek[];
   hourLessons: HourLesson[];
   dayHourLessonMap = new Map();
+  token: string;
+  response: any;
 
-  constructor(private service: HttpRequestsService) { }
+  constructor(private service: HttpRequestsService, private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.updateTable();
+    this.getQueryParamFromUrl();
+  }
+
+  public getQueryParamFromUrl(): void {
+    this._route.queryParams.subscribe(params => {
+      this.token = params['token'];
+      this.accesApi(this.token);
+      this.updateTable(this.token);
+    });
+  }
+
+  public accesApi(token) {
+    let resp = this.service.welcome(token);
+    resp.subscribe(data => this.response = data);
   }
 
   public updateTable(): void {

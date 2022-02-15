@@ -19,7 +19,7 @@ public class StudentController {
     SimpleStudentRepository simpleStudentRepository;
 
     @Autowired
-    JPQLStudentRepository xxxdeletexxxExampleStudentRepository;
+    JPQLStudentRepository jpqlStudentRepository;
 
     @GetMapping("/students")
     public List<Student> showAll() {
@@ -27,10 +27,9 @@ public class StudentController {
         return simpleStudentRepository.findAll();
     }
 
-
     @GetMapping("/studentByName")
     public Student getLessonByTeacherId(@RequestParam String name) {
-        return xxxdeletexxxExampleStudentRepository.getStudentByName(name);
+        return jpqlStudentRepository.getStudentByName(name);
     }
 
 }

@@ -11,8 +11,10 @@ public class DayOfWeek {
 
     @Id
     @Column(name = "day_of_week_id")
+    @NotBlank
     private Integer id;
 
+    @Size(min = 1, max = 9, message = "Name length cannot exceed 9 characters.")
     private String name;
 
     @OneToMany

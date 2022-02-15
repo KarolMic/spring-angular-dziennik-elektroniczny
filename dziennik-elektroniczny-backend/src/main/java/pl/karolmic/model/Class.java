@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -11,10 +14,13 @@ public class Class {
 
     @Id
     @Column(name = "class_id")
+    @NotBlank
     private Integer id;
 
+    @Column(length = 2)
     private String name;
 
+    @Min(value = 2000, message = "Year must exceed 2000.")
     private int year;
 
     @OneToMany

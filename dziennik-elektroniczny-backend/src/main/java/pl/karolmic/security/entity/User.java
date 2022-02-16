@@ -5,14 +5,19 @@ import pl.karolmic.model.Student;
 import pl.karolmic.model.Teacher;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Entity
 //@Table(name = "USER_TBL")
 public class User {
     @Id
     private int id;
+
     private String userName;
+
     private String password;
+
+    @Email
     private String email;
 
     @OneToOne
@@ -72,5 +77,21 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Student getStudent_id() {
+        return student_id;
+    }
+
+    public void setStudent_id(Student student_id) {
+        this.student_id = student_id;
+    }
+
+    public Teacher getTeacher_id() {
+        return teacher_id;
+    }
+
+    public void setTeacher_id(Teacher teacher_id) {
+        this.teacher_id = teacher_id;
     }
 }

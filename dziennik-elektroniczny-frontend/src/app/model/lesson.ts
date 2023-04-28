@@ -6,20 +6,20 @@ import {DayOfWeek} from './day-of-week';
 
 export class Lesson {
 
-  lesson_id: string;
-  subject_id: Subject;
-  dayOfWeekId: DayOfWeek;
-  hour_lesson_id: HourLesson;
-  class_id: Class;
-  teacher_id: Teacher;
+  id: number;
+  subject: Subject;
+  dayOfWeek: DayOfWeek;
+  hourLesson: HourLesson;
+  clazz: Class;
+  teacher: Teacher;
 
-  constructor(_subject_id: Subject, _dayOfWeek: DayOfWeek, _hour_lesson_id: HourLesson, _class_id: Class, _teacher_id: Teacher, _id?: string) {
-    this.subject_id = _subject_id;
-    this.dayOfWeekId = _dayOfWeek;
-    this.hour_lesson_id = _hour_lesson_id;
-    this.class_id = _class_id;
-    this.teacher_id = _teacher_id;
-    this.lesson_id = _id;
+
+  constructor(id: number, subject: Subject, dayOfWeek: DayOfWeek, hourLesson: HourLesson, clazz: Class, teacher: Teacher) {
+    this.id = id;
+    this.subject = subject;
+    this.dayOfWeek = dayOfWeek;
+    this.hourLesson = hourLesson;
+    this.clazz = clazz;
+    this.teacher = teacher;
   }
-
 }

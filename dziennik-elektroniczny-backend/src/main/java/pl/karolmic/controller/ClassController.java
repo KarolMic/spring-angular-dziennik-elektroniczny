@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.karolmic.model.Class;
-import pl.karolmic.model.Student;
 import pl.karolmic.repository.SimpleClassRepository;
-import pl.karolmic.repository.SimpleStudentRepository;
 
 import java.util.List;
 
@@ -32,5 +30,4 @@ public class ClassController extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
     }
-
 }

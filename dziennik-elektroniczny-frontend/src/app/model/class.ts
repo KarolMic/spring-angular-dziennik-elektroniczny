@@ -2,16 +2,16 @@ import {Student} from './student';
 
 export class Class {
 
-  clazz: string;
+  id: number;
   name: string;
   year: number;
   students: Student[];
 
-  constructor(_name: string, _year: number, _students: Student[], _clazz?: string) {
-    this.name = _name;
-    this.year = _year;
-    this.students = _students;
-    this.clazz = _clazz;
-  }
 
+  constructor(id: number, name: string, year: number, students: Student[]) {
+    this.id = id;
+    this.name = name;
+    this.year = year;
+    this.students = students;
+  }
 }

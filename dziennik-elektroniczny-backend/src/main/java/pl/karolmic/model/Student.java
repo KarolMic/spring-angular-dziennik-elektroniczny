@@ -1,5 +1,6 @@
 package pl.karolmic.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -9,7 +10,8 @@ import javax.persistence.ManyToOne;
 public class Student {
 
     @Id
-    private String student_id;
+    @Column(name = "student_id")
+    private Integer id;
 
     private String name;
 
@@ -19,12 +21,12 @@ public class Student {
     @JoinColumn(name="clazz")
     private Class clazz;
 
-    public String getStudent_id() {
-        return student_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setStudent_id(String student_id) {
-        this.student_id = student_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -43,18 +45,18 @@ public class Student {
         this.surName = sureName;
     }
 
-    public String getClazz() {
-        return clazz.getClazz();
+    public Integer getClazz() {
+        return clazz.getId();
     }
 
-    public void setClazz(String clazz) {
-        this.clazz.setClazz(clazz);
+    public void setClazz(Integer id) {
+        this.clazz.setId(id);
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "student_id='" + student_id + '\'' +
+                "student_id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", sureName='" + surName + '\'' +
                 ", clazz=" + clazz +

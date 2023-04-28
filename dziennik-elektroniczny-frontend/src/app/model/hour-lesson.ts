@@ -1,14 +1,14 @@
 
 export class HourLesson {
 
-  hour_lesson_id: string;
+  id: number;
   name: string;
   hour: string;
 
-  constructor(_name: string, _hour: string, _id?: string) {
-    this.name = _name;
-    this.hour = _hour;
-    this.hour_lesson_id = _id;
-  }
 
+  constructor(id: number, name: string, hour: string) {
+    this.id = id;
+    this.name = name;
+    this.hour = hour;
+  }
 }

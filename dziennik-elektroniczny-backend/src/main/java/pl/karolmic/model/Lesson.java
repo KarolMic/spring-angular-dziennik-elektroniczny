@@ -6,58 +6,59 @@ import javax.persistence.*;
 public class Lesson {
 
     @Id
-    private String lesson_id;
+    @Column(name = "lesson_id")
+    private Integer lessonId;
 
     @ManyToOne
     @JoinColumn(name = "subject_id")
-    private Subject subject_id;
+    private Subject subject;
 
     @ManyToOne
-    @JoinColumn(name = "dayOfWeekId")
-    private DayOfWeek dayOfWeekId;
+    @JoinColumn(name = "day_of_week_id")
+    private DayOfWeek dayOfWeek;
 
     @ManyToOne
     @JoinColumn(name = "hour_lesson_id")
-    private HourLesson hour_lesson_id;
+    private HourLesson hourLesson;
 
     @ManyToOne
-    @JoinColumn(name = "clazz")
+    @JoinColumn(name = "class_id")
     private Class clazz;
 
     @ManyToOne
     @JoinColumn(name = "teacher_id")
-    private Teacher teacher_id;
+    private Teacher teacher;
 
-    public String getLesson_id() {
-        return lesson_id;
+    public Integer getLessonId() {
+        return lessonId;
     }
 
-    public void setLesson_id(String lesson_id) {
-        this.lesson_id = lesson_id;
+    public void setLessonId(Integer id) {
+        this.lessonId = id;
     }
 
-    public Subject getSubject_id() {
-        return subject_id;
+    public Subject getSubject() {
+        return subject;
     }
 
-    public void setSubject_id(Subject subject_id) {
-        this.subject_id = subject_id;
+    public void setSubject(Subject subject_id) {
+        this.subject = subject_id;
     }
 
-    public DayOfWeek getDayOfWeekId() {
-        return dayOfWeekId;
+    public DayOfWeek getDayOfWeek() {
+        return dayOfWeek;
     }
 
-    public void setDayOfWeekId(DayOfWeek dayOfWeek) {
-        this.dayOfWeekId = dayOfWeek;
+    public void setDayOfWeek(DayOfWeek dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
     }
 
-    public HourLesson getHour_lesson_id() {
-        return hour_lesson_id;
+    public HourLesson getHourLesson() {
+        return hourLesson;
     }
 
-    public void setHour_lesson_id(HourLesson hour_lesson_id) {
-        this.hour_lesson_id = hour_lesson_id;
+    public void setHourLesson(HourLesson hour_lesson_id) {
+        this.hourLesson = hour_lesson_id;
     }
 
     public Class getClazz() {
@@ -68,23 +69,23 @@ public class Lesson {
         this.clazz = clazz;
     }
 
-    public Teacher getTeacher_id() {
-        return teacher_id;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
-    public void setTeacher_id(Teacher teacher_id) {
-        this.teacher_id = teacher_id;
+    public void setTeacher(Teacher teacher_id) {
+        this.teacher = teacher_id;
     }
 
     @Override
     public String toString() {
         return "Lesson{" +
-                "lesson_id='" + lesson_id + '\'' +
-                ", subject_id=" + subject_id +
-                ", dayOfWeek='" + dayOfWeekId + '\'' +
-                ", hour_lesson_id=" + hour_lesson_id +
+                "lesson_id='" + lessonId + '\'' +
+                ", subject_id=" + subject +
+                ", dayOfWeek='" + dayOfWeek + '\'' +
+                ", hour_lesson_id=" + hourLesson +
                 ", clazz=" + clazz +
-                ", teacher_id=" + teacher_id +
+                ", teacher_id=" + teacher +
                 '}';
     }
 }

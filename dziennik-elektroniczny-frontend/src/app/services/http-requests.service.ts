@@ -18,43 +18,31 @@ export class HttpRequestsService {
 
   findStudents(): Observable<Student[]> {
     return this.http.get<Student[]>('http://localhost:8080/students', {
-      headers: new HttpHeaders().set('Accept', 'application/json'),
+      // headers: new HttpHeaders().set('Accept', 'application/json'),
     });
   }
 
   findClasses(): Observable<Class[]> {
-    return this.http.get<Class[]>('http://localhost:8080/classes', {
-      headers: new HttpHeaders().set('Accept', 'application/json'),
-    });
+    return this.http.get<Class[]>('http://localhost:8080/classes');
   }
 
   findTeachers(): Observable<Teacher[]> {
-    return this.http.get<Teacher[]>('http://localhost:8080/teachers', {
-      headers: new HttpHeaders().set('Accept', 'application/json'),
-    });
+    return this.http.get<Teacher[]>('http://localhost:8080/teachers');
   }
 
   findSubjects(): Observable<Subject[]> {
-    return this.http.get<Subject[]>('http://localhost:8080/subjects', {
-      headers: new HttpHeaders().set('Accept', 'application/json'),
-    });
+    return this.http.get<Subject[]>('http://localhost:8080/subjects');
   }
 
   findLesson(className: string): Observable<Lesson[]> {
-    return this.http.get<Lesson[]>('http://localhost:8080/lesson?className=' + className, {
-      headers: new HttpHeaders().set('Accept', 'application/json'),
-    });
+    return this.http.get<Lesson[]>('http://localhost:8080/lesson?className=' + className);
   }
 
   findDaysOfWeek(): Observable<DayOfWeek[]> {
-    return this.http.get<DayOfWeek[]>('http://localhost:8080/daysOfWeek', {
-      headers: new HttpHeaders().set('Accept', 'application/json'),
-    });
+    return this.http.get<DayOfWeek[]>('http://localhost:8080/daysOfWeek');
   }
 
   findHourLessons(): Observable<HourLesson[]> {
-    return this.http.get<HourLesson[]>('http://localhost:8080/hourLessons', {
-      headers: new HttpHeaders().set('Accept', 'application/json')
-    });
+    return this.http.get<HourLesson[]>('http://localhost:8080/hourLessons');
   }
 }

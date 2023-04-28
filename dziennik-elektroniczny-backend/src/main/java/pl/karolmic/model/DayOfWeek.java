@@ -1,5 +1,6 @@
 package pl.karolmic.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -9,19 +10,20 @@ import java.util.List;
 public class DayOfWeek {
 
     @Id
-    private String DayOfWeekId;
+    @Column(name = "day_of_week_id")
+    private Integer id;
 
     private String name;
 
     @OneToMany
     List<Lesson> lessons;
 
-    public String getDayOfWeekId() {
-        return DayOfWeekId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setDayOfWeekId(String dayOfWeekId) {
-        DayOfWeekId = dayOfWeekId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -35,7 +37,7 @@ public class DayOfWeek {
     @Override
     public String toString() {
         return "DayOfWeek{" +
-                "DayOfWeekId='" + DayOfWeekId + '\'' +
+                "DayOfWeekId='" + id + '\'' +
                 ", name='" + name + '\'' +
                 '}';
     }

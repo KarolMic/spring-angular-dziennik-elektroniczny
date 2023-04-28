@@ -20,5 +20,4 @@ public class HourLessonController {
 
         return simpleHourLessonRepository.findAll();
     }
-
 }

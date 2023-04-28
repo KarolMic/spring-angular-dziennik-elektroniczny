@@ -1,5 +1,6 @@
 package pl.karolmic.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -9,7 +10,8 @@ import java.util.List;
 public class Class {
 
     @Id
-    private String clazz;
+    @Column(name = "class_id")
+    private Integer id;
 
     private String name;
 
@@ -21,12 +23,12 @@ public class Class {
     @OneToMany
     private List<Lesson> lessons;
 
-    public String getClazz() {
-        return clazz;
+    public Integer getId() {
+        return id;
     }
 
-    public void setClazz(String clazz) {
-        this.clazz = clazz;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -48,7 +50,7 @@ public class Class {
     @Override
     public String toString() {
         return "Class{" +
-                "clazz='" + clazz + '\'' +
+                "clazz='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", year=" + year +
                 '}';

@@ -11,7 +11,7 @@ import javax.persistence.EntityManager;
 @Repository
 public class StudentDao {
 
-    public static final String INSERT_SQL = "INSERT INTO STUDENT (STUDENT_ID, NAME, SURNAME, CLAZZ) VALUES (:student_id, :name, :surName, :clazz)";
+    public static final String INSERT_SQL = "INSERT INTO STUDENT (STUDENT_ID, NAME, SURNAME, CLASS_ID) VALUES (:id, :name, :surName, :clazz)";
 
     @Autowired
     private NamedParameterJdbcTemplate jdbc;

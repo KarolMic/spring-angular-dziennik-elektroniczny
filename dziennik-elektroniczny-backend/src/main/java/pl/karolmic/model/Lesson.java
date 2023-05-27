@@ -7,7 +7,7 @@ public class Lesson {
 
     @Id
     @Column(name = "lesson_id")
-    private Integer lessonId;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "subject_id")
@@ -29,12 +29,12 @@ public class Lesson {
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
 
-    public Integer getLessonId() {
-        return lessonId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setLessonId(Integer id) {
-        this.lessonId = id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Subject getSubject() {
@@ -80,7 +80,7 @@ public class Lesson {
     @Override
     public String toString() {
         return "Lesson{" +
-                "lesson_id='" + lessonId + '\'' +
+                "lesson_id='" + id + '\'' +
                 ", subject_id=" + subject +
                 ", dayOfWeek='" + dayOfWeek + '\'' +
                 ", hour_lesson_id=" + hourLesson +

@@ -1,1 +1,16 @@
+<header>
+      <a [routerLink]="['/']">
+        <img id="mainPageImg" src="assets/img/dziennik-elektroniczny-tytul.png" alt="">
+      </a>
+      <a [routerLink]="['/logout']" routerLinkActive="active" class="link-to-login-form" (click)="updateLoggedUser()">Wyloguj</a>
+
+      <a *ngIf="loggedUser.length === 0; else displayLoggedUser" [routerLink]="['/login']" routerLinkActive="active" class="link-to-login-form">Zaloguj</a>
+      <ng-template #displayLoggedUser>
+        <a [routerLink]="['/user/' + loggedUser]" class="link-to-login-form">
+          <img src="assets/img/user-icon.svg" alt="user" width="30px">
+          {{ loggedUser }}
+        </a>
+      </ng-template>
+</header>
+
 <router-outlet></router-outlet>

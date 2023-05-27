@@ -37,7 +37,7 @@ public class JPQLStudentRepositoryTest {
     public void shouldGetParticularStudentByName() {
         Student student = jpqlStudentRepository.getStudentByName("Karol");
 
-        assertEquals("1", student.getStudent_id());
+        assertEquals("1", student.getId());
         assertEquals("Karol", student.getName());
         assertEquals("Przykładowy", student.getSurName());
         assertEquals("1", student.getClazz());
@@ -46,7 +46,7 @@ public class JPQLStudentRepositoryTest {
     @Test
     public void shouldInsertNewStudentByNamedQuery_CheckIfSaved() {
         Student student = new Student();
-        student.setStudent_id("4");
+        student.setId(4);
         student.setName("Andrzej");
         student.setSurName("Stolik");
         student.setClazz(classRepository.findAll().get(0));
@@ -61,7 +61,7 @@ public class JPQLStudentRepositoryTest {
     @Test
     public void shouldPersistNewStudent_nameLengthEqualToLimit() {
         Student student = new Student();
-        student.setStudent_id("5");
+        student.setId(5);
         student.setName("1234567890");
         student.setSurName("Średni");
         student.setClazz(classRepository.findAll().get(0));
@@ -76,7 +76,7 @@ public class JPQLStudentRepositoryTest {
     @Test(expected = TransactionSystemException.class)
     public void shouldNotPersistNewStudent_nameTooLong_validationViolation() {
         Student student = new Student();
-        student.setStudent_id("6");
+        student.setId(6);
         student.setName("12345678900");
         student.setSurName("Długi");
         student.setClazz(classRepository.findAll().get(0));

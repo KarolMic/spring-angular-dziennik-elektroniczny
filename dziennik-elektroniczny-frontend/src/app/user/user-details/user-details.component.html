@@ -1,0 +1,29 @@
+<table *ngIf="item">
+  <tr>
+    <td>Typ użytkownika</td>
+    <td>{{item.type}}</td>
+  </tr>
+  <tr>
+    <td>Nazwa użytkownika</td>
+    <td>{{item.userName}}</td>
+  </tr>
+  <tr>
+    <td>E-mail</td>
+    <td>{{item.email}}</td>
+  </tr>
+  <tr>
+    <td>Imię</td>
+    <td>{{item.name}}</td>
+  </tr>
+  <tr>
+    <td>Nazwisko</td>
+    <td>{{item.surName}}</td>
+  </tr>
+</table>
+
+<br>
+
+<ng-container *ngIf="item && item.type === UserType.STUDENT">
+  <h1>Rozkład zajęć studenta:</h1>
+  <app-lesson-schedule-table [selectedClass]="item.clazz"></app-lesson-schedule-table>
+</ng-container>

@@ -1,5 +1,7 @@
 package pl.karolmic.model;
 
+import pl.karolmic.security.entity.User;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;

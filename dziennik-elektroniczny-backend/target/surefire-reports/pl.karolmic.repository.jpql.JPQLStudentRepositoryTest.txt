@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: pl.karolmic.repository.jpql.JPQLStudentRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 6.424 s <<< FAILURE! - in pl.karolmic.repository.jpql.JPQLStudentRepositoryTest
+shouldInsertNewStudentByNamedQuery_CheckIfSaved(pl.karolmic.repository.jpql.JPQLStudentRepositoryTest)  Time elapsed: 0.019 s  <<< ERROR!
+org.springframework.dao.InvalidDataAccessApiUsageException: No value supplied for the SQL parameter 'student_id': Invalid property 'student_id' of bean class [pl.karolmic.model.Student]: Bean property 'student_id' is not readable or has an invalid getter method: Does the return type of the getter match the parameter type of the setter?
+	at pl.karolmic.repository.jpql.JPQLStudentRepositoryTest.shouldInsertNewStudentByNamedQuery_CheckIfSaved(JPQLStudentRepositoryTest.java:54)
+
+shouldGetParticularStudentByName(pl.karolmic.repository.jpql.JPQLStudentRepositoryTest)  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at pl.karolmic.repository.jpql.JPQLStudentRepositoryTest.shouldGetParticularStudentByName(JPQLStudentRepositoryTest.java:38)
+

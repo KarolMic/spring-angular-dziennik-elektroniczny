@@ -10,8 +10,10 @@ import javax.validation.constraints.Email;
 @Entity
 //@Table(name = "USER_TBL")
 public class User {
+
     @Id
-    private int id;
+    @Column(name = "user_id")
+    private Integer id;
 
     private String userName;
 
@@ -22,11 +24,11 @@ public class User {
 
     @OneToOne
     @JoinColumn(name = "student_id")
-    private Student student_id;
+    private Student student;
 
     @OneToOne
     @JoinColumn(name = "teacher_id")
-    private Teacher teacher_id;
+    private Teacher teacher;
 
     public User() {
     }
@@ -43,8 +45,8 @@ public class User {
         this.userName = userName;
         this.password = password;
         this.email = email;
-        this.student_id = student_id;
-        this.teacher_id = teacher_id;
+        this.student = student_id;
+        this.teacher = teacher_id;
     }
 
     public int getId() {
@@ -79,19 +81,19 @@ public class User {
         this.email = email;
     }
 
-    public Student getStudent_id() {
-        return student_id;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setStudent_id(Student student_id) {
-        this.student_id = student_id;
+    public void setStudent(Student student_id) {
+        this.student = student_id;
     }
 
-    public Teacher getTeacher_id() {
-        return teacher_id;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
-    public void setTeacher_id(Teacher teacher_id) {
-        this.teacher_id = teacher_id;
+    public void setTeacher(Teacher teacher_id) {
+        this.teacher = teacher_id;
     }
 }

@@ -1,0 +1,19 @@
+<table *ngIf="selectedClass.length > 0">
+  <tr>
+    <td>-</td>
+    <ng-container *ngFor="let dayOfWeek of daysOfWeek">
+      <td>{{dayOfWeek.name}}</td>
+    </ng-container>
+  </tr>
+
+  <tr *ngFor="let hour of hourLessons">
+    <td>{{hour.hour}}</td>
+    <ng-container *ngFor="let day of daysOfWeek">
+      <ng-container *ngFor="let lesson of lessonResponse.lessonVOs">
+        <td *ngIf="lesson.dayOfWeek === day.name && lesson.hour === hour.hour">
+          {{ lesson.subject }}
+        </td>
+      </ng-container>
+    </ng-container>
+  </tr>
+</table>

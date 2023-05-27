@@ -5,13 +5,11 @@ INSERT INTO PUBLIC.CLASS(CLASS_ID, NAME, YEAR) VALUES
 (3, '3C', 2020);
 
 INSERT INTO PUBLIC.STUDENT(STUDENT_ID, NAME, SURNAME, CLASS_ID) VALUES
-(0, 'x', 'x', 1),
 (1, 'Karol', 'Przykładowy', 1),
 (2, 'Mateusz', 'Kowalski', 2),
 (3, 'Patryk', 'Kwiat', 3);
 
 INSERT INTO PUBLIC.TEACHER(TEACHER_ID, NAME, SURNAME) VALUES
-(0, 'x', 'x'),
 (1, 'Agnieszka', 'Jankowska'),
 (2, 'Luiza', 'Sawicka'),
 (3, 'Hubert', 'Brzeziński');
@@ -52,45 +50,85 @@ INSERT INTO PUBLIC.DAYOFWEEK(DAY_OF_WEEK_ID, NAME) VALUES
 (7, 'Sunday');
 
 INSERT INTO PUBLIC.LESSON(LESSON_ID, SUBJECT_ID, DAY_OF_WEEK_ID, HOUR_LESSON_ID, CLASS_ID, TEACHER_ID) VALUES
-(1, 1, 1, 1, 1, 1),
-(2, 2, 4, 1, 1, 3),
-(3, 3, 5, 1, 1, 2),
+-- klasa 1A
+(1,   1, 1, 1, 1, 1),
+(2,   2, 4, 1, 1, 3),
+(3,   3, 5, 1, 1, 2),
 
-(4, 2, 1, 2, 1, 2),
-(5, 6, 2, 2, 1, 3),
-(6, 3, 4, 2, 1, 1),
-(7, 9, 5, 2, 1, 3),
+(4,   2, 1, 2, 1, 2),
+(5,   6, 2, 2, 1, 3),
+(6,   3, 4, 2, 1, 1),
+(7,   9, 5, 2, 1, 3),
 
-(8, 3, 1, 3, 1, 3),
-(9, 7, 2, 3, 1, 1),
+(8,   3, 1, 3, 1, 3),
+(9,   7, 2, 3, 1, 1),
 (10, 12, 3, 3, 1, 2),
-(11, 4, 4, 3, 1, 2),
-(12, 6, 5, 3, 1, 1),
+(11,  4, 4, 3, 1, 2),
+(12,  6, 5, 3, 1, 1),
 
-(13, 4, 1, 4, 1, 1),
-(14, 8, 2, 4, 1, 2),
+(13,  4, 1, 4, 1, 1),
+(14,  8, 2, 4, 1, 2),
 (15, 12, 3, 4, 1, 3),
-(16, 2, 4, 4, 1, 1),
-(17, 7, 5, 4, 1, 1),
+(16,  2, 4, 4, 1, 1),
+(17,  7, 5, 4, 1, 1),
 
-(18, 5, 1, 5, 1, 2),
-(19, 9, 2, 5, 1, 3),
+(18,  5, 1, 5, 1, 2),
+(19,  9, 2, 5, 1, 3),
 (20, 13, 3, 5, 1, 1),
-(21, 1, 5, 5, 1, 1),
+(21,  1, 5, 5, 1, 1),
 
 (22, 10, 2, 6, 1, 1),
-(23, 1, 3, 6, 1, 2),
+(23,  1, 3, 6, 1, 2),
 
-(24, 8, 3, 7, 1, 1),
+(24,  8, 3, 7, 1, 1),
 
-(25, 9, 3, 8, 1, 3),
+(25,  9, 3, 8, 1, 3),
 
-(26, 11, 3, 9, 1, 2);
+(26, 11, 3, 9, 1, 2),
 
-INSERT INTO PUBLIC.USER(USER_ID, USERNAME, PASSWORD, STUDENT_ID, TEACHER_ID) VALUES
-('1', 'ajankowska', '$2a$10$Y0HEN3n0BI/CNwIZVZSlf.2t4z6PXqta0pSHvwuWaryiqMf5NBsZm', 0, 1),
-('2', 'lsawicka', '$2a$10$TeWr0B.Y9cBeztUioPyKsuRxOYRtehZUAQ6av1lrBkxztqJhIdFPS', 0, 2),
-('3', 'hbrzezinski', '$2a$10$HuVwhz.8ReFACGKvZKkqTelx6zs.wxs/osCbi9TFtVTufFBBeMWyO', 0, 3),
-('4', 'kprzykladowy', '$2a$10$Pw8qVTBEtDarm9XbwWoL2.UQKvNxtpp8jKSn1GTudLsQ/G.pHLP06', 1, 0),
-('5', 'mkowalski', '$2a$10$8a4d4AOAC4E/7Qj9x5UIBuJBefOFRV25cVz9QGqCAHdWqkPxNzB8C', 2, 0),
-('6', 'pkwiat', '$2a$10$UtiCAF1m.f/.jg/aKOi5s.7l.xxIDrCWvijZZlEfJXVtgkpRkXorK', 3, 0);
+-- klasa 2B
+(27,   6, 1, 2, 2, 1),
+(28,   7, 4, 2, 2, 3),
+(29,   2, 5, 2, 2, 2),
+
+(30,   9, 1, 1, 2, 2),
+(31,   5, 2, 1, 2, 3),
+(32,   4, 4, 1, 2, 1),
+(33,   1, 5, 1, 2, 3),
+
+(34,   5, 1, 4, 2, 3),
+(35,   8, 2, 4, 2, 1),
+(36,   7, 3, 4, 2, 2),
+(37,   2, 4, 4, 2, 2),
+(38,   1, 5, 4, 2, 1),
+
+(39,   8, 1, 3, 2, 1),
+(40,   9, 2, 3, 2, 2),
+(41,  13, 3, 3, 2, 3),
+(42,  12, 4, 3, 2, 1),
+(43,  10, 5, 3, 2, 1),
+
+(44,   2, 1, 6, 2, 2),
+(45,   3, 2, 6, 2, 3),
+(46,  11, 3, 6, 2, 1),
+(47,  10, 5, 6, 2, 1),
+
+(48,  12, 2, 5, 2, 1),
+(49,   8, 3, 5, 2, 2),
+
+(50,  9, 3, 9, 2, 1),
+
+(51,  3, 3, 8, 2, 3),
+
+(52,  2, 3, 7, 2, 2)
+;
+
+-- password encoder: https://www.bcryptcalculator.com/encode
+-- password: admin
+INSERT INTO PUBLIC.USER(USER_ID, USERNAME, PASSWORD, email, STUDENT_ID, TEACHER_ID) VALUES
+(1, 'ajankowska', '$2a$10$knkMoA.6fjd0AoCp4NIjNeFRhq1ebPiAAO.RUE/e7BMA5eycSRQdK', 'ajankowska@gmail.com', null, 1),
+(2, 'lsawicka', '$2a$10$knkMoA.6fjd0AoCp4NIjNeFRhq1ebPiAAO.RUE/e7BMA5eycSRQdK', 'lsawicka@gmail.com', null, 2),
+(3, 'hbrzezinski', '$2a$10$knkMoA.6fjd0AoCp4NIjNeFRhq1ebPiAAO.RUE/e7BMA5eycSRQdK', 'hbrzezinski@gmail.com', null, 3),
+(4, 'kprzykladowy', '$2a$10$knkMoA.6fjd0AoCp4NIjNeFRhq1ebPiAAO.RUE/e7BMA5eycSRQdK', 'kprzykladowy@gmail.com', 1, null),
+(5, 'mkowalski', '$2a$10$knkMoA.6fjd0AoCp4NIjNeFRhq1ebPiAAO.RUE/e7BMA5eycSRQdK', 'mkowalski@gmail.com', 2, null),
+(6, 'pkwiat', '$2a$10$knkMoA.6fjd0AoCp4NIjNeFRhq1ebPiAAO.RUE/e7BMA5eycSRQdK', 'pkwiat@gmail.com', 3, null);

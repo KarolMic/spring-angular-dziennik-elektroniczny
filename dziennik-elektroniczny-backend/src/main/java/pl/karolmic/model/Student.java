@@ -1,17 +1,21 @@
 package pl.karolmic.model;
 
+import pl.karolmic.security.entity.User;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.Size;
 
 @Entity
 @NamedQuery(name = Student.GET_STUDENT_BY_NAME, query = "select s from Student s where s.name = ?1")
 public class Student {
 
     public static final String GET_STUDENT_BY_NAME = "GetStudentByName";
-
 
     @Id
     @Column(name = "student_id")
@@ -23,7 +27,7 @@ public class Student {
     private String surName;
 
     @ManyToOne
-    @JoinColumn(name="clazz")
+    @JoinColumn(name="class_id")
     private Class clazz;
 
     @OneToOne
@@ -53,12 +57,12 @@ public class Student {
         this.surName = sureName;
     }
 
-    public Integer getClazz() {
-        return clazz.getId();
+    public Class getClazz() {
+        return clazz;
     }
 
-    public void setClazz(Integer id) {
-        this.clazz.setId(id);
+    public void setClazz(Class clazz) {
+        this.clazz = clazz;
     }
 
     @Override

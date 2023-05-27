@@ -1,39 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {HttpRequestsService} from '../services/http-requests.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {AuthRequest} from './auth-request';
+import {AuthResponse} from './auth-response';
+import {HeadersInterceptorService} from '../services/interceptor/headers-interceptor.service';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent {
 
-  userNamee: string;
-  passworde: string;
+  userName: string;
+  password: string;
 
-  authRequest: any;
+  authRequest: AuthRequest;
 
-  constructor(private service: HttpRequestsService, private _router: Router, private _route: ActivatedRoute) { }
+  constructor(private service: HttpRequestsService, private router: Router, private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
-  }
-
-  public getAccesToken(authRequest): void {
+  public getAccesToken(): void {
     this.authRequest = {
-      userName: this.userNamee,
-      password: this.passworde
+      userName: this.userName,
+      password: this.password
     };
     const resp = this.service.generateToken(this.authRequest);
-    resp.subscribe(data => {console.log(data); this.navigateToUserPage(data);});
-  }
+    resp.subscribe(data => {
+      HttpRequestsService.loggedUserSubject.next(this.userName);
+      localStorage.setItem('token', data.token);
 
-  public navigateToUserPage(userToken: object): void {
-    this._router.navigate(['/nauczyciel'], {
-      queryParams: {
-        token: userToken
-      }
+      this.navigateToMainPage();
     });
   }
 
+  public navigateToMainPage(): void {
+    this.router.navigate(['/strona-glowna']);
+  }
 }

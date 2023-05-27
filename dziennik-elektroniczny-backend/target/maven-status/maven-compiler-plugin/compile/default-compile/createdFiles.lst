@@ -6,8 +6,7 @@ pl\karolmic\model\Teacher.class
 pl\karolmic\security\entity\User.class
 pl\karolmic\repository\SimpleLessonRepository.class
 pl\karolmic\controller\StudentController.class
-pl\karolmic\interceptor\MySayHelloInterceptorBinding.class
-pl\karolmic\repository\JPQLStudentRepository.class
+pl\karolmic\repository\dao\StudentDao.class
 pl\karolmic\repository\SimpleStudentRepository.class
 pl\karolmic\App$1.class
 pl\karolmic\model\Lesson.class
@@ -23,9 +22,11 @@ pl\karolmic\controller\LessonController.class
 pl\karolmic\repository\SimpleDayOfWeekRepository.class
 pl\karolmic\controller\HourLessonController.class
 pl\karolmic\controller\TeacherController.class
+pl\karolmic\repository\jpql\JPQLStudentRepository.class
+pl\karolmic\controller\handlers\GlobalControllerExceptionHandler.class
 pl\karolmic\security\controller\WelcomeController.class
 pl\karolmic\security\service\CustomUserDetailsService.class
-pl\karolmic\interceptor\SayHelloInterceptor.class
+pl\karolmic\security\repository\nativequery\NativeQueryUserRepository.class
 pl\karolmic\security\filter\JwtFilter.class
 pl\karolmic\repository\SimpleClassRepository.class
 pl\karolmic\security\util\JwtUtil.class

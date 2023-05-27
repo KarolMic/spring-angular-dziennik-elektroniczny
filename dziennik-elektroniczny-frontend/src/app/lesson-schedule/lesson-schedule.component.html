@@ -1,0 +1,42 @@
+<!--</table>-->
+
+<!--<h1>Classes</h1>-->
+<!--<table>-->
+<!--  <tr *ngFor="let class of classes">-->
+<!--    <td>-->
+<!--      {{class.id}}-->
+<!--    </td>-->
+<!--    <td>-->
+<!--      {{class.name}}-->
+<!--    </td>-->
+<!--    <td>-->
+<!--      {{class.year}}-->
+<!--    </td>-->
+<!--  </tr>-->
+
+<!--</table>-->
+
+<!--</table>-->
+
+<!--<h1>Subjects</h1>-->
+<!--<table>-->
+<!--  <tr *ngFor="let subject of subjects">-->
+<!--    <td>-->
+<!--      {{subject.id}}-->
+<!--    </td>-->
+<!--    <td>-->
+<!--      {{subject.name}}-->
+<!--    </td>-->
+<!--  </tr>-->
+
+<!--</table>-->
+
+<h1>Rozkład zajęć</h1>
+
+<h1>Wybierz klasę</h1>
+<select class="classic" [(ngModel)]="selectedClass">
+  <option *ngFor="let clazz of classes" [value]="clazz.name">{{clazz.name}}</option>
+</select>
+
+<app-lesson-schedule-table *ngIf="selectedClass.length > 0" [selectedClass]="selectedClass"></app-lesson-schedule-table>
+

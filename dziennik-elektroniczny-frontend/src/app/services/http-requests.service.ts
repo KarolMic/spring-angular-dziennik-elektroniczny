@@ -8,11 +8,18 @@ import {Lesson} from '../model/lesson';
 import {DayOfWeek} from '../model/day-of-week';
 import {HourLesson} from '../model/hour-lesson';
 import {Teacher} from '../model/teacher';
+import {AuthRequest} from '../login-form/auth-request';
+import {AuthResponse} from '../login-form/auth-response';
+import {Subject as RxjsSubject} from 'rxjs';
+import {LessonResponse} from '../model/lessonResponse';
+import {UserDetailsItem} from '../model/UserDetailsItem';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpRequestsService {
+
+  public static loggedUserSubject: RxjsSubject<string> = new RxjsSubject<string>();
 
   constructor(private http: HttpClient) { }
 
@@ -34,8 +41,8 @@ export class HttpRequestsService {
     return this.http.get<Subject[]>('http://localhost:8080/subjects');
   }
 
-  findLesson(className: string): Observable<Lesson[]> {
-    return this.http.get<Lesson[]>('http://localhost:8080/lesson?className=' + className);
+  findLesson(className: string): Observable<LessonResponse> {
+    return this.http.get<LessonResponse>('http://localhost:8080/lesson?className=' + className);
   }
 
   findDaysOfWeek(): Observable<DayOfWeek[]> {
@@ -44,5 +51,17 @@ export class HttpRequestsService {
 
   findHourLessons(): Observable<HourLesson[]> {
     return this.http.get<HourLesson[]>('http://localhost:8080/hourLessons');
+  }
+
+  generateToken(authRequest: AuthRequest): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>('http://localhost:8080/authenticate', authRequest);
+  }
+
+  logout(): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/logout');
+  }
+
+  getUserDetails(userName: string): Observable<UserDetailsItem> {
+    return this.http.get<UserDetailsItem>('http://localhost:8080/user/details/' + userName)
   }
 }

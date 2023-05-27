@@ -26,9 +26,4 @@ public class ClassController {
         return simpleClassRepository.findAll();
     }
 
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http.csrf().disable();
-//    }
-
 }
